@@ -10,16 +10,12 @@ class SojaSerializer(serializers.ModelSerializer):
         fields = ['id', 'data', 'cotacao', 'variacao']
 
 
-class MilhoSerializer(serializers.Serializer):
-    id = serializers.IntegerField(read_only=True)
-    data = serializers.DateField()
-    cotacao = serializers.FloatField()
-    variacao = serializers.FloatField()
+class MilhoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Soja
+        fields = ['id', 'data', 'cotacao', 'variacao']
 
-
-class CafeSerializer(serializers.Serializer):
-    id = serializers.IntegerField(read_only=True)
-    tipo = serializers.ChoiceField(choices=CAFE_CHOICES, default='Arabica')
-    data = serializers.DateField()
-    cotacao = serializers.FloatField()
-    variacao = serializers.FloatField()
+class CafeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Soja
+        fields = ['id', 'tipo', 'data', 'cotacao', 'variacao']
