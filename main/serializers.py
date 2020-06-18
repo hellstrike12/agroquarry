@@ -4,11 +4,10 @@ from main.models import Soja, Milho, Cafe, CAFE_CHOICES
 # Crie seus serializadores aqui
 
 
-class SojaSerializer(serializers.Serializer):
-    id = serializers.IntegerField(read_only=True)
-    data = serializers.DateField()
-    cotacao = serializers.FloatField()
-    variacao = serializers.FloatField()
+class SojaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Soja
+        fields = ['id', 'data', 'cotacao', 'variacao']
 
 
 class MilhoSerializer(serializers.Serializer):
