@@ -7,3 +7,5 @@ markdown
 pygments
 django-filter
 django-guardian
+requests
+bs4
