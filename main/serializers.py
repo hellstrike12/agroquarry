@@ -12,10 +12,10 @@ class SojaSerializer(serializers.ModelSerializer):
 
 class MilhoSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Soja
+        model = Milho
         fields = ['id', 'data', 'cotacao', 'variacao']
 
 class CafeSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Soja
+        model = Cafe
         fields = ['id', 'tipo', 'data', 'cotacao', 'variacao']
