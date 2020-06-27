@@ -1,3 +1,5 @@
+from django_filters import rest_framework
+from django import forms
 from main.models import Soja, Milho, Cafe
 from main.serializers import SojaSerializer, MilhoSerializer, CafeSerializer
 from django.http import Http404
@@ -8,6 +10,28 @@ from rest_framework import generics
 def index(request):
     return render(request, 'index.html')
 
+class SojaFilter(rest_framework.FilterSet):
+    data_inicio = rest_framework.DateFilter('data', 'gte', label='Data Inicial')
+    data_fim = rest_framework.DateFilter('data', 'lte', label='Data Final')
+    class Meta:
+        model = Soja
+        fields = []
+
+class MilhoFilter(rest_framework.FilterSet):
+    data_inicio = rest_framework.DateFilter('data', 'gte', label='Data Inicial')
+    data_fim = rest_framework.DateFilter('data', 'lte', label='Data Final')
+    class Meta:
+        model = Milho
+        fields = []
+
+class CafeFilter(rest_framework.FilterSet):
+    data_inicio = rest_framework.DateFilter('data', 'gte', label='Data Inicial')
+    data_fim = rest_framework.DateFilter('data', 'lte', label='Data Final')
+    tipo = rest_framework.ChoiceFilter(choices=(('Arabica', 'Arabica'), ('Conillon','Conillon')))
+    class Meta:
+        model = Cafe
+        fields = ['tipo']
+
 class SojaList(generics.ListCreateAPIView):
     """
     Listar todas as cotações de soja ou criar uma nova
@@ -15,6 +39,8 @@ class SojaList(generics.ListCreateAPIView):
 
     queryset = Soja.objects.all()
     serializer_class = SojaSerializer
+    filter_backends = [rest_framework.DjangoFilterBackend]
+    filterset_class = SojaFilter
 
 class SojaDetail(generics.RetrieveUpdateDestroyAPIView):
     """
@@ -31,6 +57,8 @@ class MilhoList(generics.ListCreateAPIView):
 
     queryset = Milho.objects.all()
     serializer_class = MilhoSerializer
+    filter_backends = [rest_framework.DjangoFilterBackend]
+    filterset_class = MilhoFilter
 
 class MilhoDetail(generics.RetrieveUpdateDestroyAPIView):
     """
@@ -47,6 +75,8 @@ class CafeList(generics.ListCreateAPIView):
 
     queryset = Cafe.objects.all()
     serializer_class = CafeSerializer
+    filter_backends = [rest_framework.DjangoFilterBackend]
+    filterset_class = CafeFilter
 
 class CafeDetail(generics.RetrieveUpdateDestroyAPIView):
     """
