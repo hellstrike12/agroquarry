@@ -81,8 +81,12 @@ WSGI_APPLICATION = 'agroquarry.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dsps6h84plhju',
+        'USER': 'piqryplcyfuevv',
+        'PASSWORD': '9ec2d4913d990d72f415132ae3a7dca1637c08921535dfbea4dd3c4e70f85e77',
+        'HOST': 'ec2-35-169-254-43.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 

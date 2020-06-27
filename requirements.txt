@@ -9,3 +9,4 @@ django-filter
 django-guardian
 requests
 bs4
+psycopg2
