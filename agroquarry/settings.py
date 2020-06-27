@@ -25,8 +25,10 @@ SECRET_KEY = '5-7yg1t@3kb%v-bv6_!kkec*6j22n=m4hnn++w5ow9e-=iqa2f'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['agroquarry.herokuapp.com']
-
+ALLOWED_HOSTS = [
+    'agroquarry.herokuapp.com',
+    '127.0.0.1',
+]
 
 # Application definition
 

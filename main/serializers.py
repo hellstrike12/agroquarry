@@ -15,6 +15,7 @@ class MilhoSerializer(serializers.ModelSerializer):
         model = Milho
         fields = ['id', 'data', 'cotacao', 'variacao']
 
+
 class CafeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cafe
