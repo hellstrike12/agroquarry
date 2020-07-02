@@ -10,6 +10,8 @@ urlpatterns = [
     path('milho/<int:pk>/', views.MilhoDetail.as_view()),
     path('cafe/', views.CafeList.as_view()),
     path('cafe/<int:pk>/', views.CafeDetail.as_view()),
+    path('cafe/arabica/', views.CafeArabicaList.as_view()),
+    path('cafe/conillon/', views.CafeConillonList.as_view())
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
